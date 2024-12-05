@@ -169,12 +169,11 @@ function makeButtons(device) {
         }
 
         let label2 = document.createElement("label");
-        let button2 = document.createElement("input");
+        let button2 = document.createElement("button");
         let button2Container = document.createElement("div");
         button2.appendChild(label2);
         button2Container.appendChild(button2);
         label2.textContent = "Robot";
-        button2.type = "button";
         button2.class = "param-slider";
         button2.id = param.id;
         button2.value = "1";
@@ -183,6 +182,7 @@ function makeButtons(device) {
             let val = Number.parseInt(button2.value);
             param.value = val;
             console.log(button2.value);
+            console.log(param.value);
         }
 
         let label3 = document.createElement("label");
