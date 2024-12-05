@@ -180,6 +180,7 @@ function makeButtons(device) {
             let val = Number.parseInt(button2.value);
             param.value = val;
             console.log(button2.value);
+            console.log(param.value);
         }
 
         let label3 = document.createElement("label");
