@@ -182,8 +182,8 @@ function makeButtons(device) {
         button2.value = "1";
         button2.onclick = button2clicked;
         function button2clicked(){
-            param.value = 1;
-            console.log(button2.id);
+            device.parametersById.get("Voice") = 1;
+            console.log(device.parametersById.get("Voice").value);
         }
 
         let label3 = document.createElement("label");
