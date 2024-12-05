@@ -153,8 +153,8 @@ function loadRNBOScript(version) {
 }
 
 function makeButtons(device) {
+    let pdiv = document.getElementById("rnbo-parameter-sliders");
     device.parameters.forEach(param => {
-        let pdiv = document.getElementById("rnbo-parameter-sliders");
         let label1 = document.createElement("label");
         let button1 = document.createElement("button");
         let button1Container = document.createElement("div");
@@ -179,8 +179,8 @@ function makeButtons(device) {
         button2.value = "1";
         button2.onclick = button2clicked;
         function button2clicked(){
-            let val = Number.parseFloat(button2.value);
-            param.value = val;
+            let val = Number.parseInt(button2.value);
+            param.value = 1;
             console.log(button2.value);
             console.log(param.value);
         }
@@ -194,8 +194,9 @@ function makeButtons(device) {
         button3.value = "2";
         button3.onclick = button3clicked;
         function button3clicked(){
-            let val = Number.parseFloat(button3.value);
-            param.value = val;
+            let val = Number.parseInt(button3.value);
+            param.value = 2;
+            console.log(param.value);
         }
 
         let label4 = document.createElement("label");
