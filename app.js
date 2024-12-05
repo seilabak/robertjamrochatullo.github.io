@@ -166,6 +166,7 @@ function makeButtons(device) {
         button1.onclick = button1clicked;
         function button1clicked(){
             param.value = 0;
+            console.log(param.value);
         }
 
         let label2 = document.createElement("label");
@@ -178,6 +179,7 @@ function makeButtons(device) {
         button2.onclick = button2clicked;
         function button2clicked(){
             param.value = 1;
+            console.log(param.value);
         }
 
         let label3 = document.createElement("label");
@@ -190,6 +192,7 @@ function makeButtons(device) {
         button3.onclick = button3clicked;
         function button3clicked(){
             param.value = 2;
+            console.log(param.value);
         }
 
         let label4 = document.createElement("label");
@@ -202,6 +205,7 @@ function makeButtons(device) {
         button4.onclick = button4clicked;
         function button4clicked(){
             param.value = 3;
+            console.log(param.value);
         }
 
         let label5 = document.createElement("label");
@@ -214,6 +218,7 @@ function makeButtons(device) {
         button5.onclick = button5clicked;
         function button5clicked(){
             param.value = 5;
+            console.log(param.value);
         }
 
         pdiv.appendChild(button1Container);
