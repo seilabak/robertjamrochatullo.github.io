@@ -60,7 +60,7 @@
       "convertToNormalizedParameterValue": "function convertToNormalizedParameterValue(index, value) {\r\n    switch (index) {\r\n    case 0:\r\n        {\r\n            value = (value < 0 ? 0 : (value > 0 ? 0 : value));\r\n            let normalizedValue = (value - 0) / (0 - 0);\r\n            return normalizedValue;\r\n        }\r\n    default:\r\n        return value;\r\n    }\r\n}",
       "convertFromNormalizedParameterValue": "function convertFromNormalizedParameterValue(index, value) {\r\n    value = (value < 0 ? 0 : (value > 1 ? 1 : value));\r\n\r\n    switch (index) {\r\n    case 0:\r\n        {\r\n            value = (value < 0 ? 0 : (value > 1 ? 1 : value));\r\n\r\n            {\r\n                return 0 + value * (0 - 0);\r\n            }\r\n        }\r\n    default:\r\n        return value;\r\n    }\r\n}",
       "getNumParameters": "function getNumParameters() {\r\n    return 1;\r\n}",
-      "constrainParameterValue": "function constrainParameterValue(index, value) {\r\n    var v = value;\r\n\r\n    switch (index) {\r\n    case 0:\r\n        {\r\n            v = (v > 0 ? 0 : (v < 0 ? 0 : v));\r\n            return v;\r\n        }\r\n    default:\r\n        return value;\r\n    }\r\n}",
+      "constrainParameterValue": "function constrainParameterValue(index, value) {\r\n    var v = value;\r\n\r\n    switch (index) {\r\n    case 0:\r\n        {\r\n            v = (v > 5 ? 5 : (v < 0 ? 0 : v));\r\n            return v;\r\n        }\r\n    default:\r\n        return value;\r\n    }\r\n}",
       "subpatches": {},
       "isPolyphonic": false
     },
