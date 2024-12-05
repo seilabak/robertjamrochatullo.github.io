@@ -179,7 +179,7 @@ function makeButtons(device) {
         button2.value = "1";
         button2.onclick = button2clicked;
         function button2clicked(){
-            let val = Number.parseInt(button2.value);
+            let val = Number.parseFloat(button2.value);
             param.value = val;
             console.log(button2.value);
             console.log(param.value);
@@ -194,7 +194,7 @@ function makeButtons(device) {
         button3.value = "2";
         button3.onclick = button3clicked;
         function button3clicked(){
-            let val = Number.parseInt(button3.value);
+            let val = Number.parseFloat(button3.value);
             param.value = val;
         }
 
