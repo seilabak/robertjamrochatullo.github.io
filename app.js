@@ -172,21 +172,18 @@ function makeButtons(device) {
         }
 
         let label2 = document.createElement("label");
-        let button2 = document.createElement("input");
+        let button2 = document.createElement("button");
         let button2Container = document.createElement("div");
         button2.appendChild(label2);
         button2Container.appendChild(button2);
         label2.textContent = "Robot";
-        button2.type = "button";
         button2.class = "param-slider";
         button2.id = param.id;
-        button2.value = "Robot";
+        button2.value = "1";
         button2.onclick = button2clicked;
         function button2clicked(){
             param.value = 1;
-            console.log(button2.value);
-            console.log(param.value);
-            console.log("did it work?");
+            console.log(button2.id);
         }
 
         let label3 = document.createElement("label");
@@ -199,8 +196,7 @@ function makeButtons(device) {
         button3.onclick = button3clicked;
         function button3clicked(){
             let val = Number.parseInt(button3.value);
-            param.value = 2;
-            console.log(param.value);
+            param.value = val;
         }
 
         let label4 = document.createElement("label");
