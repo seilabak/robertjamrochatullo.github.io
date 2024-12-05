@@ -36,7 +36,7 @@ function connectMicrophone(device) {
 }
 
 async function setup() {
-    const patchExportURL = "export/patch.export.json";
+    const patchExportURL = "patch.export.json";
 
     // Create AudioContext
 
@@ -83,7 +83,7 @@ async function setup() {
     // (Optional) Fetch the dependencies
     let dependencies = [];
     try {
-        const dependenciesResponse = await fetch("export/dependencies.json");
+        const dependenciesResponse = await fetch("dependencies.json");
         dependencies = await dependenciesResponse.json();
 
         // Prepend "export" to any file dependenciies
