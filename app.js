@@ -157,7 +157,6 @@ function makeButtons(device) {
 
     const param = device.parameters[0];
     
-        console.log(param.name);
         let label1 = document.createElement("label");
         let button1 = document.createElement("button");
         let button1Container = document.createElement("div");
