@@ -209,7 +209,7 @@ function makeButtons(device) {
         let button5Container = document.createElement("div");
         button5.appendChild(label5);
         button5Container.appendChild(button5);
-        label5.textContent = "Mountain Echo";
+        label5.textContent = "Electric";
         button5.onclick = button5clicked;
         function button5clicked(){
             param.value = 5;
