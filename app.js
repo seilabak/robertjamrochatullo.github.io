@@ -154,81 +154,96 @@ function loadRNBOScript(version) {
 
 function makeButtons(device) {
     let pdiv = document.getElementById("rnbo-parameter-sliders");
+    let noParamLabel = document.getElementById("no-param-label");
+    if (noParamLabel && device.numParameters > 0) pdiv.removeChild(noParamLabel);
 
-    let param = device.parametersById.get("Voice");
-    
-        console.log(param.name);
-        let label1 = document.createElement("label");
-        let button1 = document.createElement("button");
-        let button1Container = document.createElement("div");
-        button1.appendChild(label1);
-        button1Container.appendChild(button1);
-        label1.textContent = "Alien";
-        button1.value = "0";
-        button1.onclick = button1clicked;
-        function button1clicked(){
-            let val = Number.parseInt(button1.value);
-            param.value = val;
+    // This will allow us to ignore parameter update events while dragging the slider.
+    let isDraggingSlider = false;
+    let uiElements = {};
+
+    device.parameters.forEach(param => {
+        // Subpatchers also have params. If we want to expose top-level
+        // params only, the best way to determine if a parameter is top level
+        // or not is to exclude parameters with a '/' in them.
+        // You can uncomment the following line if you don't want to include subpatcher params
+        
+        //if (param.id.includes("/")) return;
+
+        // Create a label, an input slider and a value display
+        let label = document.createElement("label");
+        let slider = document.createElement("input");
+        let text = document.createElement("input");
+        let sliderContainer = document.createElement("div");
+        sliderContainer.appendChild(label);
+        sliderContainer.appendChild(slider);
+        sliderContainer.appendChild(text);
+
+        // Add a name for the label
+        label.setAttribute("name", param.name);
+        label.setAttribute("for", param.name);
+        label.setAttribute("class", "param-label");
+        label.textContent = `${param.name}: `;
+
+        // Make each slider reflect its parameter
+        slider.setAttribute("type", "range");
+        slider.setAttribute("class", "param-slider");
+        slider.setAttribute("id", param.id);
+        slider.setAttribute("name", param.name);
+        slider.setAttribute("min", param.min);
+        slider.setAttribute("max", param.max);
+        if (param.steps > 1) {
+            slider.setAttribute("step", (param.max - param.min) / (param.steps - 1));
+        } else {
+            slider.setAttribute("step", (param.max - param.min) / 1000.0);
         }
+        slider.setAttribute("value", param.value);
 
-        let label2 = document.createElement("label");
-        let button2 = document.createElement("button");
-        let button2Container = document.createElement("div");
-        button2.appendChild(label2);
-        button2Container.appendChild(button2);
-        label2.textContent = "Robot";
-        button2.class = "param-slider";
-        button2.id = param.id;
-        button2.value = "1";
-        button2.onclick = button2clicked;
-        function button2clicked(){
-            param.value = 1;
-        }
+        // Make a settable text input display for the value
+        text.setAttribute("value", param.value.toFixed(1));
+        text.setAttribute("type", "text");
 
-        let label3 = document.createElement("label");
-        let button3 = document.createElement("button");
-        let button3Container = document.createElement("div");
-        button3.appendChild(label3);
-        button3Container.appendChild(button3);
-        label3.textContent = "Ghost";
-        button3.value = "2";
-        button3.onclick = button3clicked;
-        function button3clicked(){
-            let val = Number.parseInt(button3.value);
-            param.value = val;
-        }
+        // Make each slider control its parameter
+        slider.addEventListener("pointerdown", () => {
+            isDraggingSlider = true;
+        });
+        slider.addEventListener("pointerup", () => {
+            isDraggingSlider = false;
+            slider.value = param.value;
+            text.value = param.value.toFixed(1);
+        });
+        slider.addEventListener("input", () => {
+            let value = Number.parseFloat(slider.value);
+            param.value = value;
+        });
 
-        let label4 = document.createElement("label");
-        let button4 = document.createElement("button");
-        let button4Container = document.createElement("div");
-        button4.appendChild(label4);
-        button4Container.appendChild(button4);
-        label4.textContent = "Underwater";
-        button4.value = "3";
-        button4.onclick = button4clicked;
-        function button4clicked(){
-            let val = Number.parseInt(button4.value);
-            param.value = val;
-        }
+        // Make the text box input control the parameter value as well
+        text.addEventListener("keydown", (ev) => {
+            if (ev.key === "Enter") {
+                let newValue = Number.parseFloat(text.value);
+                if (isNaN(newValue)) {
+                    text.value = param.value;
+                } else {
+                    newValue = Math.min(newValue, param.max);
+                    newValue = Math.max(newValue, param.min);
+                    text.value = newValue;
+                    param.value = newValue;
+                }
+            }
+        });
 
-        let label5 = document.createElement("label");
-        let button5 = document.createElement("button");
-        let button5Container = document.createElement("div");
-        button5.appendChild(label5);
-        button5Container.appendChild(button5);
-        label5.textContent = "Mountain Echo";
-       button5.value = "5";
-        button5.onclick = button5clicked;
-        function button5clicked(){
-            let val = Number.parseInt(button5.value);
-            param.value = val;
-        }
+        // Store the slider and text by name so we can access them later
+        uiElements[param.id] = { slider, text };
 
-        pdiv.appendChild(button1Container);
-        pdiv.appendChild(button2Container);
-        pdiv.appendChild(button3Container);
-        pdiv.appendChild(button4Container);
-        pdiv.appendChild(button5Container);
+        // Add the slider element
+        pdiv.appendChild(sliderContainer);
+    });
+
+    // Listen to parameter changes from the device
+    device.parameterChangeEvent.subscribe(param => {
+        if (!isDraggingSlider)
+            uiElements[param.id].slider.value = param.value;
+        uiElements[param.id].text.value = param.value.toFixed(1);
+    });
     
     
 }
