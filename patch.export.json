@@ -4,8 +4,8 @@
       {
         "type": "ParameterTypeNumber",
         "index": 0,
-        "name": "voices",
-        "paramId": "voices",
+        "name": "changers",
+        "paramId": "changers",
         "minimum": 0,
         "maximum": 5,
         "exponent": 1,
