@@ -154,7 +154,9 @@ function loadRNBOScript(version) {
 
 function makeButtons(device) {
     let pdiv = document.getElementById("rnbo-parameter-sliders");
-    device.parameters.forEach(param => {
+
+    let param = device.parametersById.get("Voice");
+    
         console.log(param.name);
         let label1 = document.createElement("label");
         let button1 = document.createElement("button");
@@ -231,7 +233,7 @@ function makeButtons(device) {
         pdiv.appendChild(button3Container);
         pdiv.appendChild(button4Container);
         pdiv.appendChild(button5Container);
-    });
+    
     
 }
 
