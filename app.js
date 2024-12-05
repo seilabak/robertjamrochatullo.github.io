@@ -164,7 +164,7 @@ function makeButtons(device) {
         button1.setAttribute("value", 0);
         button1.onclick = button1clicked;
         function button1clicked(){
-            let val = button1.value;
+            let val = Number.parseInt(button1.value);
             param.value = val;
         }
 
@@ -177,7 +177,7 @@ function makeButtons(device) {
         button2.setAttribute("value", 1);
         button2.onclick = button2clicked;
         function button2clicked(){
-            let val = button2.value;
+            let val = Number.parseInt(button2.value);
             param.value = val;
         }
 
@@ -190,7 +190,7 @@ function makeButtons(device) {
         button3.setAttribute("value", 2);
         button3.onclick = button3clicked;
         function button3clicked(){
-            let val = button3.value;
+            let val = Number.parseInt(button3.value);
             param.value = val;
         }
 
@@ -203,7 +203,7 @@ function makeButtons(device) {
         button4.setAttribute("value", 3);
         button4.onclick = button4clicked;
         function button4clicked(){
-            let val = button4.value;
+            let val = Number.parseInt(button4.value);
             param.value = val;
         }
 
@@ -216,7 +216,7 @@ function makeButtons(device) {
         button5.setAttribute("value", 5);
         button5.onclick = button5clicked;
         function button5clicked(){
-            let val = button5.value;
+            let val = Number.parseInt(button5.value);
             param.value = val;
         }
 
