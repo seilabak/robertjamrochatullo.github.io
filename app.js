@@ -161,7 +161,7 @@ function makeButtons(device) {
         button1.appendChild(label1);
         button1Container.appendChild(button1);
         label1.textContent = "Alien";
-        button1.setAttribute("value", 0);
+        button1.value = "0";
         button1.onclick = button1clicked;
         function button1clicked(){
             let val = Number.parseInt(button1.value);
@@ -174,7 +174,7 @@ function makeButtons(device) {
         button2.appendChild(label2);
         button2Container.appendChild(button2);
         label2.textContent = "Robot";
-        button2.setAttribute("value", 1);
+        button2.value = "1";
         button2.onclick = button2clicked;
         function button2clicked(){
             let val = Number.parseInt(button2.value);
@@ -187,7 +187,7 @@ function makeButtons(device) {
         button3.appendChild(label3);
         button3Container.appendChild(button3);
         label3.textContent = "Ghost";
-        button3.setAttribute("value", 2);
+        button3.value = "2";
         button3.onclick = button3clicked;
         function button3clicked(){
             let val = Number.parseInt(button3.value);
@@ -200,7 +200,7 @@ function makeButtons(device) {
         button4.appendChild(label4);
         button4Container.appendChild(button4);
         label4.textContent = "Underwater";
-        button4.setAttribute("value", 3);
+        button4.value = "3";
         button4.onclick = button4clicked;
         function button4clicked(){
             let val = Number.parseInt(button4.value);
@@ -213,7 +213,7 @@ function makeButtons(device) {
         button5.appendChild(label5);
         button5Container.appendChild(button5);
         label5.textContent = "Mountain Echo";
-        button5.setAttribute("value", 5);
+       button5.value = "5";
         button5.onclick = button5clicked;
         function button5clicked(){
             let val = Number.parseInt(button5.value);
