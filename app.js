@@ -193,6 +193,7 @@ function makeButtons(device) {
         function button3clicked(){
             param.value = 2;
             console.log(param.value);
+            context.resume();
         }
 
         let label4 = document.createElement("label");
