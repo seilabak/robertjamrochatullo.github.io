@@ -155,7 +155,7 @@ function loadRNBOScript(version) {
 function makeButtons(device) {
     let pdiv = document.getElementById("rnbo-parameter-sliders");
 
-    let param = device.parametersById.get("changers");
+    const param = device.parameters[0];
     
         console.log(param.name);
         let label1 = document.createElement("label");
