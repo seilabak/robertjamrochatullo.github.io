@@ -4,8 +4,8 @@
       {
         "type": "ParameterTypeNumber",
         "index": 0,
-        "name": "Voice",
-        "paramId": "Voice",
+        "name": "voices",
+        "paramId": "voices",
         "minimum": 0,
         "maximum": 5,
         "exponent": 1,
