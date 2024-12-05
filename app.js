@@ -25,7 +25,6 @@ function connectMicrophone(device) {
   
           const source = new MediaStreamAudioSourceNode(context, options);
           source.connect(device.node);
-          console.log("connected mic");
         })
         .catch((err) => {
           console.error(`The following gUM error occurred: ${err}`);
@@ -166,8 +165,7 @@ function makeButtons(device) {
         button1.value = "0";
         button1.onclick = button1clicked;
         function button1clicked(){
-            let val = Number.parseInt(button1.value);
-            param.value = val;
+            param.value = 0;
         }
 
         let label2 = document.createElement("label");
@@ -179,8 +177,7 @@ function makeButtons(device) {
         button2.value = "1";
         button2.onclick = button2clicked;
         function button2clicked(){
-            let val = Number.parseInt(button2.value);
-            param.value = val;
+            param.value = 1;
         }
 
         let label3 = document.createElement("label");
@@ -192,8 +189,7 @@ function makeButtons(device) {
         button3.value = "2";
         button3.onclick = button3clicked;
         function button3clicked(){
-            let val = Number.parseInt(button3.value);
-            param.value = val;
+            param.value = 2;
         }
 
         let label4 = document.createElement("label");
@@ -205,8 +201,7 @@ function makeButtons(device) {
         button4.value = "3";
         button4.onclick = button4clicked;
         function button4clicked(){
-            let val = Number.parseInt(button4.value);
-            param.value = val;
+            param.value = 3;
         }
 
         let label5 = document.createElement("label");
@@ -218,8 +213,7 @@ function makeButtons(device) {
        button5.value = "5";
         button5.onclick = button5clicked;
         function button5clicked(){
-            let val = Number.parseInt(button5.value);
-            param.value = val;
+            param.value = 5;
         }
 
         pdiv.appendChild(button1Container);
