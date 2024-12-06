@@ -157,12 +157,12 @@ function makeButtons(device) {
     let param = device.parametersById.get("changers");
     
         let label1 = document.createElement("label");
-        let button1 = document.createElement("button");
+        let button1 = document.getElementById("alien");
         let button1Container = document.createElement("div");
         button1.appendChild(label1);
         button1Container.appendChild(button1);
-        label1.textContent = "Alien";
-        button1.onclick = button1clicked;
+        //label1.textContent = "Alien";
+        //button1.onclick = button1clicked;
         function button1clicked(){
             param.value = 0;
             console.log(param.value);
