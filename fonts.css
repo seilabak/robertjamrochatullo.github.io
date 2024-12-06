@@ -1,7 +1,7 @@
 @font-face {
   font-dsiplay: swap;
   font-style: normal;
-  src: url(".../public/fonts/MuseoModernoRegular.ttf");
+  src: url("../public/fonts/MuseoModernoRegular.ttf");
   font-family: "MuseoModerno"; 
   font-weight: 400;
 }
