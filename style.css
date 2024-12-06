@@ -17,6 +17,7 @@ h2, em {
 
 #rnbo-root {
     margin: auto;
+    text-align: center;
     max-width: 540px;
 }
 
@@ -42,7 +43,7 @@ h2, em {
 
 #rnbo-parameter-sliders {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #rnbo-parameter-sliders > div {

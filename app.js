@@ -157,11 +157,11 @@ function makeButtons(device) {
     let param = device.parametersById.get("changers");
     
         let label1 = document.createElement("label");
-        let button1 = document.createElement("button");
+        let button1 = document.getElementById("alien");
         let button1Container = document.createElement("div");
-        button1.appendChild(label1);
+        //button1.appendChild(label1);
         button1Container.appendChild(button1);
-        label1.textContent = "Alien";
+        //label1.textContent = "Alien";
         button1.onclick = button1clicked;
         function button1clicked(){
             param.value = 0;
@@ -169,11 +169,11 @@ function makeButtons(device) {
         }
 
         let label2 = document.createElement("label");
-        let button2 = document.createElement("button");
+        let button2 = document.getElementById("robot");
         let button2Container = document.createElement("div");
-        button2.appendChild(label2);
+        //button2.appendChild(label2);
         button2Container.appendChild(button2);
-        label2.textContent = "Robot";
+        //label2.textContent = "Robot";
         button2.onclick = button2clicked;
         function button2clicked(){
             param.value = 1;
@@ -181,11 +181,11 @@ function makeButtons(device) {
         }
 
         let label3 = document.createElement("label");
-        let button3 = document.createElement("button");
+        let button3 = document.getElementById("ghost");
         let button3Container = document.createElement("div");
-        button3.appendChild(label3);
+        //button3.appendChild(label3);
         button3Container.appendChild(button3);
-        label3.textContent = "Ghost";
+        //label3.textContent = "Ghost";
         button3.onclick = button3clicked;
         function button3clicked(){
             param.value = 2;
@@ -193,11 +193,11 @@ function makeButtons(device) {
         }
 
         let label4 = document.createElement("label");
-        let button4 = document.createElement("button");
+        let button4 = document.getElementById("underwater");
         let button4Container = document.createElement("div");
-        button4.appendChild(label4);
+        //button4.appendChild(label4);
         button4Container.appendChild(button4);
-        label4.textContent = "Underwater";
+        //label4.textContent = "Underwater";
         button4.onclick = button4clicked;
         function button4clicked(){
             param.value = 3;
@@ -205,11 +205,11 @@ function makeButtons(device) {
         }
 
         let label5 = document.createElement("label");
-        let button5 = document.createElement("button");
+        let button5 = document.getElementById("electric");
         let button5Container = document.createElement("div");
-        button5.appendChild(label5);
+        //button5.appendChild(label5);
         button5Container.appendChild(button5);
-        label5.textContent = "Electric";
+        //label5.textContent = "Electric";
         button5.onclick = button5clicked;
         function button5clicked(){
             param.value = 5;
