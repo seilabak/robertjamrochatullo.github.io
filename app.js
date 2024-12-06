@@ -161,7 +161,7 @@ function makeButtons(device) {
         let button1Container = document.createElement("div");
         button1.appendChild(label1);
         button1Container.appendChild(button1);
-        label1.textContent = "Alien";
+        //label1.textContent = "Alien";
         button1.onclick = button1clicked;
         function button1clicked(){
             param.value = 0;
